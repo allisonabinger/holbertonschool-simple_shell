@@ -45,9 +45,7 @@ int main(int agrc, char **argv, char **env)
 					}
 				}
 				else
-				{
 					printf("Command not found");
-				}
 			}
 		}
 		free_args(arguments, arg_count);
