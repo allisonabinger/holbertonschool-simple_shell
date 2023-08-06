@@ -12,8 +12,11 @@
 #include <limits.h>
 #include <signal.h>
 
-char *idle_read();
+int main(int argc, char **argv, char **env);
 //displays prompt, reads input from user and passes to next function
+
+char* read_input();
+//reads line of input and returns input as a strings passses to token_arg
 
 char **token_arg(char *input, int arg_count);
 //tokenizes input string into arguments and returns array of strings
