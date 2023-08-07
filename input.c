@@ -54,13 +54,15 @@ char **parse_line(char *line)
 		return (NULL);
 	}
 
-	token = strtok(line, delimiters);
+	token = strtok(line, TOKEN_DELIMITERS);
 	while (token != NULL)
 	{
 		tokens[pos] = strdup(token);
 		pos++;
-		token = strtok(NULL, delimiters);
+		token = strtok(NULL, TOKEN_DELIMITERS);
 	}
 	tokens[pos] = NULL;
+
+	printf("%s\n", tokens[pos]);
 	return (tokens);
 }
