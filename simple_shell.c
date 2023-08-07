@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "shell.h"
 /**
@@ -14,8 +15,14 @@ int main() /** add argc and argv and use them somewhere */
 	{
 		printf("$ ");
 		line = read_line();
-		commands = parse_line(line);
-		exec_cmd(commands);
+		if (line != NULL)
+		{
+			commands = parse_line(line);
+			if (commands != NULL)
+			{
+				exec_cmd(commands);
+			}
+		}
 		free(line);
 		free_args(commands);
 	}
