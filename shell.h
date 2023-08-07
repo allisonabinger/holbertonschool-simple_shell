@@ -12,6 +12,11 @@
 #include <limits.h>
 #include <signal.h>
 
+#define BUFSIZE 1024
+#define WHITESPACE " \n\r\t"
+#define DELIMETER ":;"
+#define BUF 1000
+
 int main(int argc, char **argv, char **env);
 //displays prompt, reads input from user and passes to next function
 
