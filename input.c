@@ -56,7 +56,7 @@ char **parse_line(char *line)
 
 	while (token != NULL)
 	{
-		token[pos] = token;
+		tokens[pos] = token;
 		pos++;
 		token = strtok(NULL, TOKEN_DELIMETERS);
 	}
