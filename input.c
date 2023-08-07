@@ -20,16 +20,16 @@ char *read_line(void)
 
 	if (lineptr == NULL) /** Error handling for malloc() failure */
 	{
-		perror("Not enough memory to malloc()");
+		printf("Not enough memory to malloc()");
 		free(lineptr);
-		exit(EXIT_FAILURE);
+		return(NULL);
 	}
 
 	if ((getline(&lineptr, &n, stdin)) < 0) /** Error handling for getline() failure */
 	{
-		perror("Could not read line");
+		printf("Could not read line");
 		free(lineptr);
-		exit(EXIT_FAILURE);
+		return (NULL);
 	}
 	
 	return (lineptr);
