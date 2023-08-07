@@ -4,6 +4,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#define MAX_TOKENS 64
+#define PATH_DELIM ":;"
 #define INPUT_LENGTH 1024
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
