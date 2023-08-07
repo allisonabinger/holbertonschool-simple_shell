@@ -38,32 +38,29 @@ char *read_line(void)
 
 char **parse_line(char *line)
 {
-	int bufsize = INPUT_LENGTH;
-	int position = 0;
-	char **tokens = malloc(bufsize * sizeof(char*));
+	int n = strlen(line);
+
+	char **tokens = malloc(n * sizeof(char));
+
 	char *token;
+
+	int pos = 0;
+
+	if (!tokens)
+	{
+		printf("Allocation Error.");
+		return (NULL);
+	}
 	
-	if (!tokens) {
-        fprintf(stderr, "Allocation error\n");
-        exit(EXIT_FAILURE);
-    }
+	token = strtok(line, TOKEN_DELIMETERS);
 
-    token = strtok(line, TOKEN_DELIMITERS);
-    while (token != NULL) {
-        tokens[position] = token;
-        position++;
+	while (token != NULL)
+	{
+		token[pos] = token;
+		pos++;
+		token = strtok(NULL, TOKEN_DELIMETERS);
+	}
+	tokens[pos] = NULL;
 
-        if (position >= bufsize) {
-            bufsize += INPUT_LENGTH;
-            tokens = realloc(tokens, bufsize * sizeof(char*));
-            if (!tokens) {
-                fprintf(stderr, "Allocation error\n");
-                exit(EXIT_FAILURE);
-            }
-        }
-
-        token = strtok(NULL, TOKEN_DELIMITERS);
-    }
-    tokens[position] = NULL;
-    return tokens;
+	return(tokens);
 }
