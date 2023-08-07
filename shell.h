@@ -12,7 +12,7 @@ void shell_login();
 // reads line of input from user, returns string //
 char *read_line();
 
-// parses input line into indivual comamnds (tokenizer) //
+// parses input line into individual comamnds (tokenizer) //
 char **parse_line(char *line);
 
 // executes parsed command //

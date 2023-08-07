@@ -7,22 +7,16 @@
  */
 int main() /** add argc and argv and use them somewhere */
 {
-	while(1)
-	{
-		shell_login();
-		return (0);
-	}
-}
-
-void shell_login()
-{
 	char *line;
 	char **commands;
 
-	printf("$ ");
-	line = read_line();
-	commands = parse_line(line);
-	exec_cmd(commands);
-	free(line);
-	free_args(commands);
+	while (1) 
+	{
+		printf("$ ");
+		line = read_line();
+		commands = parse_line(line);
+		exec_cmd(commands);
+		free(line);
+		free_args(commands);
+	}
 }
