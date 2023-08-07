@@ -1,11 +1,13 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#include <string.h>
+
 #define INPUT_LENGTH 1024
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
 // starts the shell and enters main loop //
-void simple_shell();
+void shell_login();
 
 // reads line of input from user, returns string //
 char *read_line();

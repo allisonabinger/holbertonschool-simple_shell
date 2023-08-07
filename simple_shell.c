@@ -1,21 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string,h>
 #include "shell.h"
 /**
  * main - entry point
  * Return: always 0 (success)
  */
-int main(int ac, char *av[])
+int main() /** add argc and argv and use them somewhere */
 {
 	while(1)
 	{
-		start_shell();
+		shell_login();
 		return (0);
 	}
 }
 
-void start_shell()
+void shell_login()
 {
 	char *line;
 	char **commands;

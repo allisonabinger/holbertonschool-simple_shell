@@ -18,7 +18,7 @@ char *read_line(void)
 
 	lineptr = malloc(sizeof(n));
 
-	if (lineptr == NULL); /** Error handling for malloc() failure */
+	if (lineptr == NULL) /** Error handling for malloc() failure */
 	{
 		perror("Not enough memory to malloc()");
 		free(lineptr);
