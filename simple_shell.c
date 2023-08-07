@@ -6,10 +6,13 @@
  * main - entry point
  * Return: always 0 (success)
  */
-int main()
+int main(int ac, char *av[])
 {
-	start_shell();
-	return (0);
+	while(1)
+	{
+		start_shell();
+		return (0);
+	}
 }
 
 void start_shell()
@@ -17,14 +20,10 @@ void start_shell()
 	char *line;
 	char **commands;
 
-	while (1)
-	{
-		printf("> ");
-		line = read_line();
-		commands = parse_line(line);
-		exec_cmd(commands);
-
-		free(line);
-		free_args(commands);
-	}
+	printf("$ ");
+	line = read_line();
+	commands = parse_line(line);
+	exec_cmd(commands);
+	free(line);
+	free_args(commands);
 }
