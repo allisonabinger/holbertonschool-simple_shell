@@ -32,6 +32,7 @@ char *read_line(void)
 		return (NULL);
 	}
 	
+	printf("%s\n", lineptr);
 	return (lineptr);
 }
 
