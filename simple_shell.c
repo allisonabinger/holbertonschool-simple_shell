@@ -10,7 +10,7 @@
  * @env: array of strings passed as an environment
  * Return: 0 (Always success)
  */
-int main(int agrc, char **argv, char **env)
+int main(int argc, char **argv, char **env)
 {
 	char* input;
 	char** arguments;
