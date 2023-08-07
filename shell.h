@@ -2,6 +2,7 @@
 #define SHELL_H
 
 #include <string.h>
+#include <stdio.h>
 
 #define INPUT_LENGTH 1024
 #define TOKEN_DELIMITERS " \t\r\n\a"

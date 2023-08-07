@@ -8,10 +8,10 @@
  * Return: <insert return value>
  */
 
-void exec_cmd(char **commands)
+void free_args(char **args)
 {
-	if (commands)
+	if (args)
 	{
-		printf("commands");
+		printf("args");
 	}
 }
