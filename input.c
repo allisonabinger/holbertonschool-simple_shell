@@ -12,22 +12,14 @@
 char *read_line(void)
 {
 	char *lineptr = NULL; /** buffer that holds user input as 1 string */
-	size_t n; /** max size of acceptable inputs */
-	
+	size_t n = 0; /** max size of acceptable inputs */
+	ssize_t chars_read;
+
 	printf("read_line start...");
-	n = INPUT_LENGTH;
 
-	lineptr = malloc(n * sizeof(char*));
+	chars_read = getline(&lineptr, &n, stdin);
 
-	if (lineptr == NULL) /** Error handling for malloc() failure */
-	{
-		printf("Not enough memory to malloc()");
-		free(lineptr);
-		return (NULL);
-	}
-	printf("malloc(lineptr) success!...");
-
-	if ((getline(&lineptr, &n, stdin)) < 0) /** Error handling for getline() */
+	if (chars_read < 0) /** Error handling for getline() */
 	{
 		printf("Could not read line");
 		free(lineptr);
