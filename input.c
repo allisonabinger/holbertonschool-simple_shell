@@ -13,7 +13,8 @@ char *read_line(void)
 {
 	char *lineptr = NULL; /** buffer that holds user input as 1 string */
 	size_t n; /** max size of acceptable inputs */
-
+	
+	printf("read_line start...");
 	n = INPUT_LENGTH;
 
 	lineptr = malloc(sizeof(n));
@@ -24,6 +25,7 @@ char *read_line(void)
 		free(lineptr);
 		return (NULL);
 	}
+	printf("malloc(lineptr) success!...");
 
 	if ((getline(&lineptr, &n, stdin)) < 0) /** Error handling for getline() */
 	{

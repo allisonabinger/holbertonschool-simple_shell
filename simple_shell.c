@@ -20,10 +20,10 @@ int main() /** add argc and argv and use them somewhere */
 			commands = parse_line(line);
 			if (commands != NULL)
 			{
-				exec_cmd(commands);
+/**	implement pls			exec_cmd(commands); */
 			}
 		}
 		free(line);
-		free_args(commands);
+/**	implement pls	free_args(commands); */
 	}
 }

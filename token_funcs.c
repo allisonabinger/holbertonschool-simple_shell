@@ -10,6 +10,7 @@
  */
 char **tokenizer(char *line, char *delim)
 {
+	printf("Tokenizer start...");
 	int token_count = 0;
 	char **tokens = malloc(MAX_TOKENS * sizeof(char));
 	char *tok = strtok(line, delim);
