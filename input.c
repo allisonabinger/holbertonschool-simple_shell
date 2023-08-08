@@ -15,8 +15,6 @@ char *read_line(void)
 	size_t n = 0; /** max size of acceptable inputs */
 	ssize_t chars_read;
 
-	printf("read_line start...");
-
 	chars_read = getline(&lineptr, &n, stdin);
 
 	if (chars_read < 0) /** Error handling for getline() */

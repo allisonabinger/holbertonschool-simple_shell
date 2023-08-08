@@ -14,20 +14,22 @@ int main() /** add argc and argv and use them somewhere */
 	while (1) 
 	{
 		printf("$ ");
+		printf("attempting to read line...\n");
 		line = read_line();
+		printf("read line success!\n");
 		if (line != NULL)
 		{
-			printf("attempting parse_line...");
+			printf("attempting parse_line...i\n");
 			commands = parse_line(line);
-			printf("parse_line success!");
+			printf("parse_line success!\n");
 			if (commands != NULL)
 			{
 /**	implement pls			exec_cmd(commands); */
 			}
 		}
-		printf("attempting free(line)...");
+		printf("attempting free(line)...\n");
 		free(line);
-		printf("free(line) success!");
+		printf("free(line) success!\n");
 /**	implement pls	free_args(commands); */
 	}
 }
