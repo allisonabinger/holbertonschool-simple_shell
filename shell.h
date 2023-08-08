@@ -19,7 +19,7 @@ int exec_cmd(char **cmd);
 int launch_process(char **cmd);
 
 /** tokenizer function */
-char tokenizer(char *line, char *delim);
+char **tokenizer(char *line, char *delim);
 
 /** free the memory allocated for the command arguments */
 void free_args(char **args);
