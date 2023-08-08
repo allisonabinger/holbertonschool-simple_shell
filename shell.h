@@ -7,7 +7,7 @@
 #define MAX_TOKENS 64
 #define PATH_DELIM ":;"
 #define INPUT_LENGTH 1024
-#define TOKEN_DELIMETERS " \t\r\n\a"
+#define TOKEN_DELIMETERS " \t\r\n"
 
 /** starts the shell and enters main loop */
 int main(void);
@@ -16,7 +16,7 @@ int main(void);
 int exec_cmd(char **cmd);
 
 /** launches process for non-built-in commands */
-int launch_process(char **cmd);
+void launch_process(char **cmd);
 
 /** tokenizer function */
 char **tokenizer(char *line, char *delim);
@@ -24,7 +24,5 @@ char **tokenizer(char *line, char *delim);
 /** free the memory allocated for the command arguments */
 void free_args(char **args);
 
-/** handle errors */
-void handle_error();
 
 #endif

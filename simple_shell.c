@@ -25,24 +25,17 @@ int main()
 			free(line);
 			continue;
 		}
+
 		cmdtoks = tokenizer(line, TOKEN_DELIMETERS);
 
-		if (cmdtoks == NULL)
+		if (cmdtoks != NULL)
 		{
-			/**implementless
-			 * free_arg(cmdtoks);
-			 * continu:
-			 */
+			if (exec_cmd(cmdtoks) == 1)
+				launch_process(cmdtoks);
+			
+			free_args(cmdtoks);
 		}
-		/**
-		 * need to write
-		 * exec_cmd(cmdtoks);
-		 */
-
 		free(line);
-		/**
-		 * need to write
-		 * free_args(cmdtoks);
-		 */
 	}
+	return (0);
 }
