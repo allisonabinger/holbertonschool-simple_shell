@@ -31,7 +31,7 @@ int main()
 		{
 			/**implementless
 			 * free_arg(cmdtoks);
-			 * continue
+			 * continu:
 			 */
 		}
 		/**
