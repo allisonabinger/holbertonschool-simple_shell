@@ -17,7 +17,7 @@ char *read_line(void)
 	printf("read_line start...");
 	n = INPUT_LENGTH;
 
-	lineptr = malloc(sizeof(n));
+	lineptr = malloc(n * sizeof(char*));
 
 	if (lineptr == NULL) /** Error handling for malloc() failure */
 	{
@@ -47,7 +47,7 @@ char **parse_line(char *line)
 {
 	int bufsize = 64;
 	int pos = 0;
-	char **tokens = malloc(bufsize * sizeof(char));
+	char **tokens = malloc(bufsize * sizeof(char*));
 	char *token;
 
 	if (!tokens)
