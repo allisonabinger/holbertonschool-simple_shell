@@ -7,7 +7,7 @@
 #define MAX_TOKENS 64
 #define PATH_DELIM ":;"
 #define INPUT_LENGTH 1024
-#define TOKEN_DELIMETERS " \t\r\n\a"
+#define TOKEN_DELIMITERS " \t\r\n\a"
 
 /** starts the shell and enters main loop */
 void shell_login();

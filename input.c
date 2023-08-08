@@ -50,6 +50,8 @@ char **parse_line(char *line)
 	char **tokens = malloc(bufsize * sizeof(char*));
 	char *token;
 
+	printf("parse_line start...");
+
 	if (!tokens)
 	{
 		fprintf(stderr, "Allocation error\n");

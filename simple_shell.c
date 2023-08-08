@@ -17,13 +17,17 @@ int main() /** add argc and argv and use them somewhere */
 		line = read_line();
 		if (line != NULL)
 		{
+			printf("attempting parse_line...");
 			commands = parse_line(line);
+			printf("parse_line success!");
 			if (commands != NULL)
 			{
 /**	implement pls			exec_cmd(commands); */
 			}
 		}
+		printf("attempting free(line)...");
 		free(line);
+		printf("free(line) success!");
 /**	implement pls	free_args(commands); */
 	}
 }
