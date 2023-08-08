@@ -1,35 +1,48 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "shell.h"
 /**
  * main - entry point
  * Return: always 0 (success)
  */
-int main() /** add argc and argv and use them somewhere */
+int main()
 {
 	char *line;
-	char **commands;
+	size_t bufsize = 0;
+	ssize_t chars_read = 0;
+	char **cmdtoks;
 
 	while (1) 
 	{
-		printf("$ ");
-		printf("attempting to read line...\n");
-		line = read_line();
-		printf("read line success!\n");
-		if (line != NULL)
+		if (isatty(fileno(stdin)))
+			printf("$ ");
+
+		chars_read = getline(&line, &bufsize, stdin);
+		if (chars_read < 0)
 		{
-			printf("attempting parse_line...i\n");
-			commands = parse_line(line);
-			printf("parse_line success!\n");
-			if (commands != NULL)
-			{
-/**	implement pls			exec_cmd(commands); */
-			}
+			free(line);
+			continue;
 		}
-		printf("attempting free(line)...\n");
+		cmdtoks = tokenizer(line, TOKEN_DELIMETERS);
+
+		if (cmdtoks == NULL)
+		{
+			/**implementless
+			 * free_arg(cmdtoks);
+			 * continue
+			 */
+		}
+		/**
+		 * need to write
+		 * exec_cmd(cmdtoks);
+		 */
+
 		free(line);
-		printf("free(line) success!\n");
-/**	implement pls	free_args(commands); */
+		/**
+		 * need to write
+		 * free_args(cmdtoks);
+		 */
 	}
 }
