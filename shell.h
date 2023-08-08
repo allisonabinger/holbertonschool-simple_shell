@@ -10,25 +10,16 @@
 #define TOKEN_DELIMETERS " \t\r\n\a"
 
 /** starts the shell and enters main loop */
-void shell_login();
+int main(void);
 
-/** reads line of input from user, returns string */
-char *read_line();
-
-/** parses input line into individual comamnds (tokenizer) */
-char **parse_line(char *line);
-
-/** executes parsed command */
-void exec_cmd(char **commands);
-
-/** handles built-ins */
-void exec_bi_cmd(char **args);
+/** executes built in or passes to launch_process if not */
+int exec_cmd(char **cmd);
 
 /** launches process for non-built-in commands */
-void launch_process(char **args);
+int launch_process(char **cmd);
 
-/** handles signals */
-void handle_signal(int signal);
+/** tokenizer function */
+char tokenizer(char *line, char *delim);
 
 /** free the memory allocated for the command arguments */
 void free_args(char **args);

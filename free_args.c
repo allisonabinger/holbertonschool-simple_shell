@@ -10,8 +10,5 @@
 
 void free_args(char **args)
 {
-	if (args)
-	{
-		printf("args");
-	}
+
 }
