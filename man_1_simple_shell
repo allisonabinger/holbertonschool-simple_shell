@@ -1,1 +1,31 @@
+simple_shell(1) - Shell Program
 
+NAME
+    simple_shell - a simple shell program
+
+SYNOPSIS
+   ./hsh
+
+DESCRIPTION
+    The shell program is a simple command-line interpreter that allows users to execute built-in commands or launch processes for non-built-in commands.
+
+OPTIONS
+    The shell program does not accept any command-line options.
+
+COMMANDS
+    The following built-in commands are supported by the shell program:
+
+    cd [directory]
+        Change the current working directory to the specified directory.
+
+    exit
+        Terminate the shell program.
+
+USAGE
+    To use the shell program, simply run it without any command-line arguments. Once the shell is started, you can enter commands at the prompt.
+
+SEE ALSO
+    exec_cmd(3), launch_process(3), tokenizer(3), free_args(3)
+
+AUTHOR
+    The shell program was written by Allison Binger and Brad Brown.
