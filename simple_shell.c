@@ -13,6 +13,7 @@ int main()
 	size_t bufsize = 0;
 	ssize_t chars_read = 0;
 	char **cmdtoks;
+	int bicmd;
 
 	while (1) 
 	{
@@ -30,10 +31,13 @@ int main()
 
 		if (cmdtoks != NULL)
 		{
-			if (exec_cmd(cmdtoks) == 1)
+			bicmd = exec_cmd(cmdtoks);
+
+			if (bicmd != 0)
+			{
 				launch_process(cmdtoks);
-			
-			free_args(cmdtoks);
+			}
+			free(cmdtoks);
 		}
 		free(line);
 	}
