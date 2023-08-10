@@ -10,5 +10,10 @@
 
 void free_args(char **args)
 {
+	int i = 0;
 
+	for (; args[i] != NULL; i++)
+	{
+		free(args[i]);
+	}
 }
