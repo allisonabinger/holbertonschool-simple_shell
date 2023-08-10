@@ -3,10 +3,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "shell.h"
+
 /**
- * main - entry point
+ * main - Entry point
+ *
  * Return: always 0 (success)
  */
+
 int main()
 {
 	char *line;
