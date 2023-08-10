@@ -13,8 +13,6 @@ char **tokenizer(char *line, char *delim)
 	int token_count = 0;
 	char **tokens = malloc(MAX_TOKENS * sizeof(char));
 	char *tok = strtok(line, delim);
-	
-	printf("Tokenizer start...");
 
 	while (tok != NULL)
 	{
