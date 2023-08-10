@@ -11,12 +11,14 @@ void launch_process(char **cmd)
 {
 	pid_t kidpid;
 /**	int status; <----what's this? */
-	char *cmdstr = NULL;
-	char *argv[2] = {NULL, NULL};
+	char *cmdstr = malloc(strlen(*cmd) + 1);
+	char *argv[2];
 
 	strcpy(cmdstr, *cmd);
+
 	argv[0] = cmdstr;
 	argv[1] = NULL;
+
 	kidpid = fork();
 
 	if(kidpid < 0)
