@@ -42,12 +42,62 @@ Some commands are built-in functions that do not require the use of the `fork()`
 
 
 ### Flowchart: How did we get here?
-
-
-
-
-
- 
++---------------------+
+|     Start Program   |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|   Initialize Shell  |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|    Process Built-   |
+|     in Commands     |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|    Execute Built-   |
+|     in Command      |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|    Terminate        |
+|     Program         |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|   Launch Process    |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|    Wait for Child   |
+|     Process         |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|     Continue        |
+|    Processing       |
++----------+----------+
+           |
+           |
+           v
++----------+----------+
+|    End Program      |
++---------------------+
 
 ## Compilation
 
