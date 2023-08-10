@@ -4,6 +4,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sys/types.h>
 
 #define MAX_TOKENS 64
 #define PATH_DELIM ":;"
