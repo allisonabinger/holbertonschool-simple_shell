@@ -37,7 +37,7 @@ int main()
 			{
 				launch_process(cmdtoks);
 			}
-			free(cmdtoks);
+			free_args(cmdtoks);
 		}
 		free(line);
 	}
