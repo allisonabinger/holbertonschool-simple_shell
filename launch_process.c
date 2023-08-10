@@ -1,14 +1,26 @@
 #include "shell.h"
-
+#include <unistd.h>
+#include <stdlib.n>
 /**
- * <function name goes here> - Entry point
+ * launch_process - forks a process to execute an external cmd
  *
- * <@parameters go here>: Description
+ * @cmd: tokenized arguments
  *
- * Return: <insert return value>
+ * Return: NULL
  */
-
-int main(void)
+void launch_process(char *cmd)
 {
-	return (0);
+	pid_t kidpid;
+	int status;
+	kidpid = fork();
+
+	if(kidpid < 0)
+	{
+		perror("Fork");
+		exit(EXIT_FAILURE);
+	}
+	else if (kidpid == 0)
+	{
+		execve /**parameters must have full path*/
+	}
 }
