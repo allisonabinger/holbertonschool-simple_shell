@@ -21,7 +21,7 @@ void launch_process(char **cmd)
 
 	kidpid = fork();
 
-	if(kidpid < 0)
+	if (kidpid < 0)
 	{
 		perror("Fork");
 		exit(EXIT_FAILURE);

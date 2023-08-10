@@ -10,7 +10,7 @@
  * Return: always 0 (success)
  */
 
-int main()
+int main(void)
 {
 	char *line;
 	size_t bufsize = 0;
@@ -18,7 +18,7 @@ int main()
 	char **cmdtoks;
 	int bicmd;
 
-	while (1) 
+	while (1)
 	{
 		if (isatty(fileno(stdin)))
 			printf("$ ");

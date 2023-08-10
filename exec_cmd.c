@@ -16,7 +16,7 @@ int exec_cmd(char **cmd)
 		if (cmd[1] != NULL)
 		{
 			const char *homedir = cmd[1];
-			
+
 			if (chdir(homedir) != 0)
 			{
 				perror("cd");
