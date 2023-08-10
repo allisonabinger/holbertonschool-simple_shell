@@ -40,68 +40,6 @@ The following files in the C standard library were utilized:
 ### Built-Ins
 Some commands are built-in functions that do not require the use of the `fork()` system call. These functions are directly executed within the shell's context, without creating separate processes. The ones utilized in this project are **cd** and **exit**.
 
-
-<<<<<<< HEAD
-=======
-### Flowchart: How did we get here?
-+---------------------+
-|     Start Program   |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|   Initialize Shell  |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|    Process Built-   |
-|     in Commands     |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|    Execute Built-   |
-|     in Command      |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|    Terminate        |
-|     Program         |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|   Launch Process    |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|    Wait for Child   |
-|     Process         |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|     Continue        |
-|    Processing       |
-+----------+----------+
-           |
-           |
-           v
-+----------+----------+
-|    End Program      |
-+---------------------+
-
->>>>>>> 5a135e2301c30ded83d5888d60e5341d9b4ba1f9
 ## Compilation
 
 **simple_shell** was compiled using *gcc*
