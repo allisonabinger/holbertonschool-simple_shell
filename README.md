@@ -41,14 +41,6 @@ The following files in the C standard library were utilized:
 Some commands are built-in functions that do not require the use of the `fork()` system call. These functions are directly executed within the shell's context, without creating separate processes. The ones utilized in this project are **cd** and **exit**.
 
 
-### Flowchart: How did we get here?
-
-
-
-
-
- 
-
 ## Compilation
 
 **simple_shell** was compiled using *gcc*
@@ -56,5 +48,6 @@ Some commands are built-in functions that do not require the use of the `fork()`
     gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 
-
-
+## Authors
+Allison A Binger
+Brad Brown
