@@ -27,7 +27,15 @@ The input is passed to **exec_cmd** to determine if the function is built in or 
 
 **free_args** is a custom command that allows for the arguments passed along the function to be freed through iteration.  
 
-
+### Header Files
+The following files in the C standard library were utilized:
+*string.h*
+*stdio.h*
+*stdlib.h*
+*errno.h*
+*sys/wait.h*
+*sys/types.h*
+*unistd.h*
 
 ### Built-Ins
 Some commands are built-in functions that do not require the use of the `fork()` system call. These functions are directly executed within the shell's context, without creating separate processes. The ones utilized in this project are **cd** and **exit**.
