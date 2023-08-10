@@ -3,6 +3,7 @@
 
 #include <string.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_TOKENS 64
 #define PATH_DELIM ":;"

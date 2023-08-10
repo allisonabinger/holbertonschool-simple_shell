@@ -1,6 +1,5 @@
 #include "shell.h"
 #include <unistd.h>
-#include <stdlib.n>
 /**
  * launch_process - forks a process to execute an external cmd
  *
@@ -8,10 +7,16 @@
  *
  * Return: NULL
  */
-void launch_process(char *cmd)
+void launch_process(char **cmd)
 {
 	pid_t kidpid;
-	int status;
+/**	int status; <----what's this? */
+	char *cmdstr = NULL;
+	char *argv[2] = {NULL, NULL};
+
+	strcpy(cmdstr, *cmd);
+	argv[0] = cmdstr;
+	argv[1] = NULL;
 	kidpid = fork();
 
 	if(kidpid < 0)
@@ -21,6 +26,6 @@ void launch_process(char *cmd)
 	}
 	else if (kidpid == 0)
 	{
-		execve /**parameters must have full path*/
+		execve(cmdstr, argv, NULL); /**parameters must have full path*/
 	}
 }
