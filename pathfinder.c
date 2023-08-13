@@ -18,6 +18,10 @@ void pathfinder(char **cmdtoks)
         return;
     }
 
+    size_t path_len = strlen(path_copy);
+    if (path_len > 0 && path_copy[path_len - 1] == '\n')
+	    path_copy[path_len - 1] = '\0';
+
     command = cmdtoks[0];
 
     dir = strtok(path_copy, ":");
