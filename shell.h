@@ -1,32 +1,20 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/wait.h>
 #include <sys/types.h>
+#include <sys/wait.h>
+#include <string.h>
 
-#define MAX_TOKENS 64
-#define PATH_DELIM ":;"
-#define INPUT_LENGTH 1024
-#define TOKEN_DELIMETERS " \t\r\n"
+#define TOKEN_DELIMETERS " \t\r\n\a"
 
-/** starts the shell and enters main loop */
-int main(void);
-
-/** executes built in or passes to launch_process if not */
-int exec_cmd(char **cmd);
-
-/** launches process for non-built-in commands */
-void launch_process(char **cmd);
-
-/** tokenizer function */
-char **tokenizer(char *line, char *delim);
-
-/** free the memory allocated for the command arguments */
+/* Function prototypes */
+void pathfinder(char **cmdtoks);
+void launch_process(char **cmdtoks);
+char **tokenizer(char *line, const char *delimiters);
+int exec_cmd(char **cmdtoks);
 void free_args(char **args);
 
-
-#endif
+#endif /* SHELL_H */
