@@ -44,6 +44,8 @@ int main(void)
             continue;
         }
 
+	line[strcspn(line, "\n")] = '\0';
+
         cmdtoks = tokenizer(line, TOKEN_DELIMETERS);
 
         if (cmdtoks != NULL)
