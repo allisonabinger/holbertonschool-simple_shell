@@ -13,7 +13,7 @@
 /* Function prototypes */
 void pathfinder(char **cmdtoks);
 void launch_process(char **cmdtoks);
-char **tokenizer(char *line, const char *delimiters);
+char **tokenizer(char *line, char *delim);
 int exec_cmd(char **cmdtoks);
 void free_args(char **args);
 
