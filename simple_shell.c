@@ -42,24 +42,31 @@ int main(void)
 				strcat(command_with_path, "/");
 				strcat(command_with_path, cmdtoks[0]);
 
-				pid = fork();
+				if (access(command_with_path, X_OK) == 0)
+				{
+					pid = fork();
 
-				if (pid == -1)
-				{
-					perror("fork");
-					exit(EXIT_FAILURE);
-				}
-				else if (pid == 0)
-				{
-					execve(command_with_path, cmdtoks, NULL);
-					perror("execve");
-					exit(EXIT_FAILURE);
+					if (pid == -1)
+					{
+						perror("fork");
+						exit(EXIT_FAILURE);
+					}
+					else if (pid == 0)
+					{
+						execve(command_with_path, cmdtoks, NULL);
+						perror("execve");
+						exit(EXIT_FAILURE);
+					}
+					else
+					{
+						waitpid(pid, &status, 0);
+						if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+							fprintf(stderr, "Command execution failed\n");
+					}
 				}
 				else
 				{
-					waitpid(pid, &status, 0);
-					if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
-						fprintf(stderr, "Command execution failed\n");
+					fprintf(stderr, "Command not found: %s\n", cmdtoks[0]);
 				}
 			}
 			free_args(cmdtoks);
@@ -68,4 +75,3 @@ int main(void)
 	}
 	return (0);
 }
-
