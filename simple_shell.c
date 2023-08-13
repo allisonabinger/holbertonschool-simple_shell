@@ -27,8 +27,18 @@ int main(void)
         if (isatty(fileno(stdin)))
             printf("$ ");
 
-        chars_read = getline(&line, &bufsize, stdin);
-        if (chars_read < 0)
+	chars_read = getline(&line, &bufsize, stdin);
+	if (chars_read == -1)
+	{
+		if (feof(stdin))
+		{
+			printf("\n");
+			break; /* Exit the loop */
+		}
+		perror("getline");
+		exit(EXIT_FAILURE);
+	}
+	if (chars_read < 0)
         {
             free(line);
             continue;

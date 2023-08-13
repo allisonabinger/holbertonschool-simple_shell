@@ -11,7 +11,7 @@
 char **tokenizer(char *line, char *delim)
 {
 	int token_count = 0;
-	char **tokens = malloc(10 * sizeof(char));
+	char **tokens = malloc(sizeof(char));
 	char *tok = strtok(line, delim);
 
 	while (tok != NULL)

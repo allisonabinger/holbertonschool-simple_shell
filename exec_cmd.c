@@ -11,7 +11,7 @@
  */
 int exec_cmd(char **cmd)
 {
-	if (strcmp(*cmd, "cd") == 0)
+	if (strcmp(cmd[0], "cd") == 0)
 	{
 		if (cmd[1] != NULL)
 		{
@@ -28,7 +28,7 @@ int exec_cmd(char **cmd)
 		}
 		return (0);
 	}
-	else if (strcmp(*cmd, "exit") == 0)
+	else if (strcmp(cmd[0], "exit") == 0)
 	{
 		exit(0);
 	}
