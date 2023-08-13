@@ -8,10 +8,13 @@
 
 int main(void)
 {
-	char *line, **cmdtoks;
+	char *line;
 	size_t bufsize = 0;
 	ssize_t chars_read = 0;
+	char **cmdtoks;
 	int bicmd;
+	pid_t pid;
+	int status;
 
 	while (1)
 	{
@@ -39,7 +42,7 @@ int main(void)
 				strcat(command_with_path, "/");
 				strcat(command_with_path, cmdtoks[0]);
 
-				pid_t pid = fork();
+				pid = fork();
 
 				if (pid == -1)
 				{
@@ -54,7 +57,6 @@ int main(void)
 				}
 				else
 				{
-					int status;
 					waitpid(pid, &status, 0);
 					if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 						fprintf(stderr, "Command execution failed\n");
