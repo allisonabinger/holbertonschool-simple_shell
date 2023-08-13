@@ -20,6 +20,7 @@ void launch_process(char **cmdtoks)
 		if (access(cmdtoks[0], X_OK) == -1)
 		{
 			perror("access");
+			free(cmdtoks);
 			exit(EXIT_FAILURE);
 		}
 
