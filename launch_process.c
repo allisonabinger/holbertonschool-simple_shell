@@ -1,33 +1,40 @@
 #include "shell.h"
-#include <unistd.h>
+
 /**
- * launch_process - forks a process to execute an external cmd
+ * launch_process - Launches a process using fork and execve
+ * @cmdtoks: The command and its arguments
  *
- * @cmd: tokenized arguments
- *
- * Return: NULL
+ * Description: This function launches a new process using the fork and execve
+ * system calls. The command and its arguments are passed as cmdtoks.
  */
-void launch_process(char **cmd)
+void launch_process(char **cmdtoks)
 {
-	pid_t kidpid;
-/**	int status; <----what's this? */
-	char *cmdstr = malloc(strlen(*cmd) + 1);
-	char *argv[2];
+    pid_t pid;
+    int status;
 
-	strcpy(cmdstr, *cmd);
-
-	argv[0] = cmdstr;
-	argv[1] = NULL;
-
-	kidpid = fork();
-
-	if (kidpid < 0)
-	{
-		perror("Fork");
-		exit(EXIT_FAILURE);
-	}
-	else if (kidpid == 0)
-	{
-		execve(cmdstr, argv, NULL); /**parameters must have full path*/
-	}
+    pid = fork();
+    if (pid == -1)
+    {
+        perror("fork");
+        return;
+    }
+    else if (pid == 0)
+    {
+        if (execve(cmdtoks[0], cmdtoks, NULL) == -1)
+        {
+            perror("execve");
+            exit(EXIT_FAILURE);
+        }
+    }
+    else
+    {
+        do
+        {
+            if (waitpid(pid, &status, WUNTRACED) == -1)
+            {
+                perror("waitpid");
+                return;
+            }
+        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
+    }
 }
