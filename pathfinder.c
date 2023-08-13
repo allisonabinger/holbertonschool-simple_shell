@@ -11,6 +11,7 @@ void pathfinder(char **cmdtoks)
     char *dir;
     char *command;
     char *path_copy = strdup(path);
+    size_t path_len;
 
     if (path_copy == NULL)
     {
@@ -18,7 +19,8 @@ void pathfinder(char **cmdtoks)
         return;
     }
 
-    size_t path_len = strlen(path_copy);
+    path_len = strlen(path_copy);
+    
     if (path_len > 0 && path_copy[path_len - 1] == '\n')
 	    path_copy[path_len - 1] = '\0';
 
