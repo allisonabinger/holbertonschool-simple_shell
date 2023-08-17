@@ -32,7 +32,6 @@ int main(void)
 	{
 		if (feof(stdin))
 		{
-			printf("\n");
 			break; /* Exit the loop */
 		}
 		perror("getline");
