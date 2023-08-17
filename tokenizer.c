@@ -46,3 +46,18 @@ char **tokenizer(char *line, char *delim)
         if (tokens[i] == NULL)
         {
             perror("strdup");
+            for (n = 0; n < i; n++)
+            {
+                free(tokens[n]);
+            }
+            free(tokens);
+            free(linecp);
+            return (NULL);
+        }
+        token = strtok(NULL, delim);
+        i++;
+    }
+    tokens[i] = NULL;
+    free(linecp);
+    return (tokens);
+}
