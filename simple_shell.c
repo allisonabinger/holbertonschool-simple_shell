@@ -19,23 +19,27 @@ int main(void)
     char *line = NULL;
     size_t bufsize = 0;
     ssize_t chars_read = 0;
-    int check = STDIN_FILENO;
+    int filedescriptor = STDIN_FILENO;
     char **cmdtoks;
     int bicmd;
 
     while (1)
     {
-        if (isatty(check) == 1)
+        if (isatty(filedescriptor) == 1)
         {
             printf("$ ");
+            fflush(stdout);
         }
         chars_read = getline(&line, &bufsize, stdin);
         
         if (chars_read == -1)
         {
-            perror("getline");
-            free(line);
-			exit(EXIT_FAILURE);
+            if (feof(stdin))
+            {
+                perror("getline");
+                free(line);
+                exit(EXIT_FAILURE);
+            }
 		}
         line[strcspn(line, "\n")] = '\0';
 
