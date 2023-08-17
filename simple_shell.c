@@ -19,12 +19,13 @@ int main(void)
     char *line = NULL;
     size_t bufsize = 0;
     ssize_t chars_read = 0;
+    int check = STDIN_FILENO;
     char **cmdtoks;
     int bicmd;
 
     while (1)
     {
-        if (isatty(fileno(stdin)))
+        if (isatty(check) == 1)
         {
             printf("$ ");
         }
@@ -36,11 +37,6 @@ int main(void)
             free(line);
 			exit(EXIT_FAILURE);
 		}
-        if (chars_read < 0)
-        {
-            free(line);
-            continue;
-        }
         line[strcspn(line, "\n")] = '\0';
 
         cmdtoks = tokenizer(line, TOKEN_DELIMETERS);
