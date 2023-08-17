@@ -7,11 +7,10 @@
  */
 void pathfinder(char **cmdtoks)
 {
+    char *command = cmdtoks[0];
     char *path = getenv("PATH");
-    char *dir;
-    char *command;
     char *path_copy = strdup(path);
-    size_t path_len;
+    char *dir;
 
     if (path_copy == NULL)
     {
@@ -19,17 +18,14 @@ void pathfinder(char **cmdtoks)
         return;
     }
 
-    path_len = strlen(path_copy);
-    
-    if (path_len > 0 && path_copy[path_len - 1] == '\n')
-	    path_copy[path_len - 1] = '\0';
-
-    command = cmdtoks[0];
-
     dir = strtok(path_copy, ":");
+
     while (dir != NULL)
     {
-        char *path_command = malloc(strlen(dir) + strlen(command) + 2);
+        size_t dir_len = strlen(dir);
+        size_t cmd_len = strlen(command);
+        char *path_command = malloc(dir_len + cmd_len + 2);
+
         if (path_command == NULL)
         {
             perror("malloc");
@@ -37,8 +33,10 @@ void pathfinder(char **cmdtoks)
             return;
         }
 
-        sprintf(path_command, "%s/%s", dir, command);
+        // Construct the potential full path
+        snprintf(path_command, dir_len + cmd_len + 2, "%s/%s", dir, command);
 
+        // Check if the constructed path is executable
         if (access(path_command, X_OK) == 0)
         {
             free(cmdtoks[0]);
