@@ -25,27 +25,23 @@ int main(void)
     while (1)
     {
         if (isatty(fileno(stdin)))
+        {
             printf("$ ");
-
-	chars_read = getline(&line, &bufsize, stdin);
-	if (chars_read == -1)
-	{
-		if (feof(stdin))
-		{
-            printf("\n");
-			break; /* Exit the loop */
+        }
+        chars_read = getline(&line, &bufsize, stdin);
+        
+        if (chars_read == -1)
+        {
+            perror("getline");
+            free(line);
+			exit(EXIT_FAILURE);
 		}
-		perror("getline");
-        free(line);
-		exit(EXIT_FAILURE);
-	}
-	if (chars_read < 0)
+        if (chars_read < 0)
         {
             free(line);
             continue;
         }
-
-	line[strcspn(line, "\n")] = '\0';
+        line[strcspn(line, "\n")] = '\0';
 
         cmdtoks = tokenizer(line, TOKEN_DELIMETERS);
 
