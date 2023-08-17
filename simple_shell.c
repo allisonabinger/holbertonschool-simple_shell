@@ -32,11 +32,11 @@ int main(void)
 	{
 		if (feof(stdin))
 		{
-            printf('\n');
+            printf("\n");
 			break; /* Exit the loop */
 		}
 		perror("getline");
-        free(chars_read);
+        free(line);
 		exit(EXIT_FAILURE);
 	}
 	if (chars_read < 0)
