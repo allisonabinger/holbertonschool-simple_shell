@@ -33,11 +33,9 @@ char **tokenizer(char *line, char *delim)
 
     while (token != NULL)
     {
-        // Trim leading whitespace
         while (isspace((unsigned char)*token))
             token++;
 
-        // Trim trailing whitespace
         end = token + strlen(token) - 1;
 
         while (end > token && isspace((unsigned char)*end))
