@@ -10,17 +10,41 @@
  */
 char **tokenizer(char *line, char *delim)
 {
-	int token_count = 0;
-	char **tokens = malloc(sizeof(char));
-	char *tok = strtok(line, delim);
+	int max = 10;
+	int i = 0;
+	int n;
+	char **tokens;
+	char *token, *linecp;
 
-	while (tok != NULL)
+	linecp = strdup(line);
+
+	tokens = malloc(max * sizeof(char *));
+
+	if (tokens == NULL)
 	{
-		tokens[token_count] = strdup(tok);
-		token_count++;
-		tok = strtok(NULL, delim);
+		perror("malloc error");
+		return (NULL);
 	}
+	token = strtok(linecp, delim);
 
-	tokens[token_count] = NULL;
+	while (token != NULL)
+	{
+		tokens[i] = strdup(token);
+		if (tokens[i] == NULL)
+		{
+			perror("strdup");
+			for (n = 0; n < i; n++)
+			{
+				free(tokens[n]);
+			}
+			free(tokens);
+			free(linecp);
+			return (NULL);
+		}
+		token = strtok(NULL, delim);
+		i++;
+	}
+	tokens[i] = NULL;
+	free(linecp);
 	return (tokens);
 }
