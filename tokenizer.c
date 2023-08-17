@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h> // Include this for isspace()
+#include <ctype.h>
 #include "shell.h"
 
 /**
@@ -17,6 +17,7 @@ char **tokenizer(char *line, char *delim)
     int n;
     char **tokens;
     char *token, *linecp;
+	char *end;
 
     linecp = strdup(line);
 
@@ -37,7 +38,8 @@ char **tokenizer(char *line, char *delim)
             token++;
 
         // Trim trailing whitespace
-        char *end = token + strlen(token) - 1;
+        end = token + strlen(token) - 1;
+
         while (end > token && isspace((unsigned char)*end))
             end--;
         *(end + 1) = '\0';
