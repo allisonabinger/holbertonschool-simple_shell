@@ -11,6 +11,7 @@
 #define TOKEN_DELIMETERS " \t\r\n\a"
 
 /* Function prototypes */
+int handleWhitespace(char *line, ssize_t line_length);
 void pathfinder(char **cmdtoks);
 void launch_process(char **cmdtoks);
 char **tokenizer(char *line, char *delim);

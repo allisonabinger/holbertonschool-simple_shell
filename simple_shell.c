@@ -21,7 +21,7 @@ int main(void)
     ssize_t chars_read = 0;
     int filedescriptor = STDIN_FILENO;
     char **cmdtoks;
-    int bicmd;
+    int bicmd, tdelims;
 
     while (1)
     {
@@ -42,6 +42,11 @@ int main(void)
             }
 		}
         line[strcspn(line, "\n")] = '\0';
+
+        tdelims = handleWhitespace(line, chars_read);
+        
+        if (chars_read == tdelims)
+            continue;
 
         cmdtoks = tokenizer(line, TOKEN_DELIMETERS);
 
