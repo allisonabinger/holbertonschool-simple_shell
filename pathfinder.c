@@ -33,10 +33,8 @@ void pathfinder(char **cmdtoks)
             return;
         }
 
-        // Construct the potential full path
         snprintf(path_command, dir_len + cmd_len + 2, "%s/%s", dir, command);
 
-        // Check if the constructed path is executable
         if (access(path_command, X_OK) == 0)
         {
             free(cmdtoks[0]);
